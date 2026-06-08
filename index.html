@@ -11,58 +11,60 @@
             padding: 0;
             background-color: #f8f9fa;
         }
-        
         header {
             background-color: #007bff;
             color: white;
-            padding: 25px;
-            text-align: left;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
+        .home-icon {
+            font-size: 32px;
+        }
         nav {
             background-color: #333;
             padding: 15px;
             text-align: center;
         }
-        
         nav a {
             color: white;
             margin: 0 20px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 17px;
         }
-        
         nav a:hover {
             font-weight: bold;
             text-decoration: underline;
         }
-        
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 30px auto;
             padding: 20px;
         }
-        
         .section {
             background: white;
             padding: 25px;
             margin-bottom: 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        img {
+        .profile-img {
             max-width: 180px;
             border-radius: 50%;
+            border: 5px solid #007bff;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header with Name + Home Icon -->
     <header>
         <h1>Frank Glaesener</h1>
+        <span class="home-icon">🏠</span>
     </header>
 
+    <!-- Navigation Bar -->
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -72,20 +74,20 @@
 
     <div class="container">
 
-        <!-- Task 3: About Me -->
+        <!-- About Me -->
         <section id="about" class="section">
             <h2>About Me</h2>
-            <img src="images/FrankGlaesener.jpg" alt="Frank Glaesener">
+            <img src="images/FrankGlaesener.jpg" alt="Frank Glaesener" class="profile-img">
             <p>Hello, I'm Frank Glaesener. This is my final project for the Web Development course.</p>
         </section>
 
-        <!-- Task 4: Skills -->
+        <!-- Skills -->
         <section id="skills" class="section">
             <h2>Skills</h2>
             <p>HTML5 • CSS3 • JavaScript • Responsive Design • Bootstrap • Git</p>
         </section>
 
-        <!-- Task 5: Projects -->
+        <!-- Projects -->
         <section id="projects" class="section">
             <h2>Project Details</h2>
             <p>1. Personal Portfolio Website<br>
@@ -93,70 +95,37 @@
                3. Simple E-Commerce Demo</p>
         </section>
 
-        <!-- Task 6 & 7: Recommendations -->
+        <!-- Recommendations -->
         <section id="recommendations" class="section">
             <h2>Recommendations</h2>
-            <p>"Very clean and professional work!" - Anna Müller</p>
-            <p>"Great understanding of HTML & CSS." - Thomas Weber</p>
-            <p>"Creative and well-structured design." - Lisa Schmidt</p>
+            <div id="recList">
+                <p>"Very clean and professional work!" - Anna Müller</p>
+                <p>"Great understanding of HTML & CSS." - Thomas Weber</p>
+                <p>"Creative and well-structured design." - Lisa Schmidt</p>
+            </div>
             
             <br>
-            <input type="text" id="recInput" placeholder="Write a new recommendation..." style="width:70%; padding:8px;">
-            <button onclick="addRec()">Submit</button>
-            
-            <div id="thankYou" style="display:none; margin-top:15px; color:green; font-weight:bold;">
-                Thank you for your recommendation!
-            </div>
+            <input type="text" id="newRec" placeholder="Write a new recommendation..." style="width:70%; padding:10px;">
+            <button onclick="addRecommendation()">Add</button>
         </section>
 
     </div>
 
     <script>
-        function addRec() {
-            document.getElementById('thankYou').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('thankYou').style.display = 'none';
-            }, 2500);
+        function addRecommendation() {
+            const input = document.getElementById('newRec');
+            const list = document.getElementById('recList');
+            
+            if (input.value.trim() === "") return;
+            
+            const newItem = document.createElement('p');
+            newItem.textContent = `"${input.value}" - New User`;
+            list.appendChild(newItem);
+            
+            input.value = "";
+            alert("Thank you for your recommendation!");
         }
     </script>
 
-<nav style="background:#333; padding:12px; text-align:center; margin:20px 0;">
-    <a href="#" style="color:white; margin:0 15px; text-decoration:none;">Home</a>
-    <a href="#about" style="color:white; margin:0 15px; text-decoration:none;">About</a>
-    <a href="#projects" style="color:white; margin:0 15px; text-decoration:none;">Projects</a>
-    <a href="#skills" style="color:white; margin:0 15px; text-decoration:none;">Skills</a>
-    <a href="#recommendations" style="color:white; margin:0 15px; text-decoration:none;">Recommendations</a>
-</nav>
-
-
-<div style="position:fixed; top:15px; right:20px; font-size:28px; z-index:100;">
-    🏠
-</div>
-
-
-<section id="recommendations">
-    <h2>Recommendations</h2>
-    <div id="recList">
-       
-    </div>
-    
-    <input type="text" id="newRec" placeholder="Write a new recommendation..." style="width:65%; padding:8px;">
-    <button onclick="addNewRec()">Add</button>
-</section>
-
-<script>
-function addNewRec() {
-    const input = document.getElementById('newRec');
-    if (input.value.trim() === "") return;
-    
-    const list = document.getElementById('recList');
-    const newItem = document.createElement('p');
-    newItem.textContent = `"${input.value}" - New User`;
-    list.appendChild(newItem);
-    
-    input.value = "";
-    alert("Thank you for your recommendation!");
-}
-</script>
 </body>
 </html>
