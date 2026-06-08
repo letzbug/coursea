@@ -20,7 +20,7 @@
             align-items: center;
         }
         .home-icon {
-            font-size: 32px;
+            font-size: 30px;
         }
         nav {
             background-color: #333;
@@ -29,13 +29,15 @@
         }
         nav a {
             color: white;
-            margin: 0 20px;
+            margin: 0 18px;
             text-decoration: none;
             font-size: 17px;
+            transition: all 0.3s;
         }
         nav a:hover {
             font-weight: bold;
             text-decoration: underline;
+            color: #ffd700;
         }
         .container {
             max-width: 950px;
@@ -58,36 +60,36 @@
 </head>
 <body>
 
-    <!-- Header with Name + Home Icon -->
+    <!-- Task 1 + Task 8 -->
     <header>
         <h1>Frank Glaesener</h1>
         <span class="home-icon">🏠</span>
     </header>
 
-    <!-- Navigation Bar -->
+    <!-- Task 2: Navigation -->
     <nav>
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Project Details</a>
         <a href="#skills">Skills</a>
         <a href="#recommendations">Recommendations</a>
     </nav>
 
     <div class="container">
 
-        <!-- About Me -->
+        <!-- Task 3: About Me -->
         <section id="about" class="section">
             <h2>About Me</h2>
             <img src="images/FrankGlaesener.jpg" alt="Frank Glaesener" class="profile-img">
             <p>Hello, I'm Frank Glaesener. This is my final project for the Web Development course.</p>
         </section>
 
-        <!-- Skills -->
+        <!-- Task 4: Skills -->
         <section id="skills" class="section">
             <h2>Skills</h2>
             <p>HTML5 • CSS3 • JavaScript • Responsive Design • Bootstrap • Git</p>
         </section>
 
-        <!-- Projects -->
+        <!-- Task 5: Projects -->
         <section id="projects" class="section">
             <h2>Project Details</h2>
             <p>1. Personal Portfolio Website<br>
@@ -95,7 +97,7 @@
                3. Simple E-Commerce Demo</p>
         </section>
 
-        <!-- Recommendations -->
+        <!-- Task 6 + 7: Recommendations -->
         <section id="recommendations" class="section">
             <h2>Recommendations</h2>
             <div id="recList">
