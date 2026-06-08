@@ -1,30 +1,124 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mein Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank Glaesener - Portfolio</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
         header {
             background-color: #007bff;
             color: white;
-            padding: 20px;
+            padding: 25px;
             text-align: left;
         }
-        h1 {
-            margin: 0;
-            font-size: 28px;
+        
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        nav a:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        img {
+            max-width: 180px;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Frank Glaesener</h1>  
+        <h1>Frank Glaesener</h1>
     </header>
 
-    <h2>Welcome to my Webpage</h2>
-    <p>This is my final project</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#recommendations">Recommendations</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Task 3: About Me -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <img src="https://via.placeholder.com/180" alt="Profile Picture">
+            <p>Hello, I'm Frank Glaesener. This is my final project for the Web Development course.</p>
+        </section>
+
+        <!-- Task 4: Skills -->
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <p>HTML5 • CSS3 • JavaScript • Responsive Design • Bootstrap • Git</p>
+        </section>
+
+        <!-- Task 5: Projects -->
+        <section id="projects" class="section">
+            <h2>Project Details</h2>
+            <p>1. Personal Portfolio Website<br>
+               2. Weather Application<br>
+               3. Simple E-Commerce Demo</p>
+        </section>
+
+        <!-- Task 6 & 7: Recommendations -->
+        <section id="recommendations" class="section">
+            <h2>Recommendations</h2>
+            <p>"Very clean and professional work!" - Anna Müller</p>
+            <p>"Great understanding of HTML & CSS." - Thomas Weber</p>
+            <p>"Creative and well-structured design." - Lisa Schmidt</p>
+            
+            <br>
+            <input type="text" id="recInput" placeholder="Write a new recommendation..." style="width:70%; padding:8px;">
+            <button onclick="addRec()">Submit</button>
+            
+            <div id="thankYou" style="display:none; margin-top:15px; color:green; font-weight:bold;">
+                Thank you for your recommendation!
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function addRec() {
+            document.getElementById('thankYou').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('thankYou').style.display = 'none';
+            }, 2500);
+        }
+    </script>
 
 </body>
 </html>
